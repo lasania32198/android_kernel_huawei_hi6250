@@ -46,5 +46,5 @@ jobs:
     - name: Upload Kernel
       uses: actions/upload-artifact@v4
       with:
-        name: Phenix_stock-${{ steps.dob.outputs.TIME }}
+        name: A14Kernel-${{ steps.dob.outputs.TIME }}
         path: "A14Kernel-*.img"
