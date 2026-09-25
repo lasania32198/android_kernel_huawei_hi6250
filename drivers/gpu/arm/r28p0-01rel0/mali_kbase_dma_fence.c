@@ -1,1 +1,381 @@
-LyoKICoKICogKEMpIENPUFlSSUdIVCAyMDExLTIwMTcsMjAyMCBBUk0gTGltaXRlZC4gQWxsIHJpZ2h0cyByZXNlcnZlZC4KICoKICogVGhpcyBwcm9ncmFtIGlzIGZyZWUgc29mdHdhcmUgYW5kIGlzIHByb3ZpZGVkIHRvIHlvdSB1bmRlciB0aGUgdGVybXMgb2YgdGhlCiAqIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIHZlcnNpb24gMiBhcyBwdWJsaXNoZWQgYnkgdGhlIEZyZWUgU29mdHdhcmUKICogRm91bmRhdGlvbiwgYW5kIGFueSB1c2UgYnkgeW91IG9mIHRoaXMgcHJvZ3JhbSBpcyBzdWJqZWN0IHRvIHRoZSB0ZXJtcwogKiBvZiBzdWNoIEdOVSBsaWNlbmNlLgogKgogKiBUaGlzIHByb2dyYW0gaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCwKICogYnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2YKICogTUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiBTZWUgdGhlCiAqIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuCiAqCiAqIFlvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlCiAqIGFsb25nIHdpdGggdGhpcyBwcm9ncmFtOyBpZiBub3QsIHlvdSBjYW4gYWNjZXNzIGl0IG9ubGluZSBhdAogKiBodHRwOi8vd3d3LmdudS5vcmcvbGljZW5zZXMvZ3BsLTIuMC5odG1sLgogKgogKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAogKgogKi8KCgovKiBJbmNsdWRlIG1hbGlfa2Jhc2VfZG1hX2ZlbmNlLmggYmVmb3JlIGNoZWNraW5nIGZvciBDT05GSUdfTUFMSV9ETUFfRkVOQ0UgYXMKICogaXQgd2lsbCBiZSBzZXQgdGhlcmUuCiAqLwojaW5jbHVkZSAibWFsaV9rYmFzZV9kbWFfZmVuY2UuaCIKCiNpbmNsdWRlIDxsaW51eC9hdG9taWMuaD4KI2luY2x1ZGUgPGxpbnV4L2xpc3QuaD4KI2luY2x1ZGUgPGxpbnV4L2xvY2tkZXAuaD4KI2luY2x1ZGUgPGxpbnV4L211dGV4Lmg+CiNpbmNsdWRlIDxsaW51eC9yZXNlcnZhdGlvbi5oPgojaW5jbHVkZSA8bGludXgvc2xhYi5oPgojaW5jbHVkZSA8bGludXgvc3BpbmxvY2suaD4KI2luY2x1ZGUgPGxpbnV4L3dvcmtxdWV1ZS5oPgojaW5jbHVkZSA8bGludXgvd3dfbXV0ZXguaD4KCiNpbmNsdWRlIDxtYWxpX2tiYXNlLmg+CgpzdGF0aWMgdm9pZAprYmFzZV9kbWFfZmVuY2Vfd29yayhzdHJ1Y3Qgd29ya19zdHJ1Y3QgKnB3b3JrKTsKCnN0YXRpYyB2b2lkCmtiYXNlX2RtYV9mZW5jZV93YWl0ZXJzX2FkZChzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20pCnsKCXN0cnVjdCBrYmFzZV9jb250ZXh0ICprY3R4ID0ga2F0b20tPmtjdHg7CgoJbGlzdF9hZGRfdGFpbCgma2F0b20tPnF1ZXVlLCAma2N0eC0+ZG1hX2ZlbmNlLndhaXRpbmdfcmVzb3VyY2UpOwp9CgpzdGF0aWMgdm9pZAprYmFzZV9kbWFfZmVuY2Vfd2FpdGVyc19yZW1vdmUoc3RydWN0IGtiYXNlX2pkX2F0b20gKmthdG9tKQp7CglsaXN0X2RlbCgma2F0b20tPnF1ZXVlKTsKfQoKc3RhdGljIGludAprYmFzZV9kbWFfZmVuY2VfbG9ja19yZXNlcnZhdGlvbnMoc3RydWN0IGtiYXNlX2RtYV9mZW5jZV9yZXN2X2luZm8gKmluZm8sCgkJCQkgIHN0cnVjdCB3d19hY3F1aXJlX2N0eCAqY3R4KQp7CglzdHJ1Y3QgcmVzZXJ2YXRpb25fb2JqZWN0ICpjb250ZW50X3JlcyA9IE5VTEw7Cgl1bnNpZ25lZCBpbnQgY29udGVudF9yZXNfaWR4ID0gMDsKCXVuc2lnbmVkIGludCByOwoJaW50IGVyciA9IDA7CgoJd3dfYWNxdWlyZV9pbml0KGN0eCwgJnJlc2VydmF0aW9uX3d3X2NsYXNzKTsKCnJldHJ5OgoJZm9yIChyID0gMDsgciA8IGluZm8tPmRtYV9mZW5jZV9yZXN2X2NvdW50OyByKyspIHsKCQlpZiAoaW5mby0+cmVzdl9vYmpzW3JdID09IGNvbnRlbnRfcmVzKSB7CgkJCWNvbnRlbnRfcmVzID0gTlVMTDsKCQkJY29udGludWU7CgkJfQoKCQllcnIgPSB3d19tdXRleF9sb2NrKCZpbmZvLT5yZXN2X29ianNbcl0tPmxvY2ssIGN0eCk7CgkJaWYgKGVycikKCQkJZ290byBlcnJvcjsKCX0KCgl3d19hY3F1aXJlX2RvbmUoY3R4KTsKCXJldHVybiBlcnI7CgplcnJvcjoKCWNvbnRlbnRfcmVzX2lkeCA9IHI7CgoJLyogVW5sb2NrIHRoZSBsb2NrZWQgb25lIG9uZXMgKi8KCXdoaWxlIChyLS0pCgkJd3dfbXV0ZXhfdW5sb2NrKCZpbmZvLT5yZXN2X29ianNbcl0tPmxvY2spOwoKCWlmIChjb250ZW50X3JlcykKCQl3d19tdXRleF91bmxvY2soJmNvbnRlbnRfcmVzLT5sb2NrKTsKCgkvKiBJZiB3ZSBkZWFkbG9jayB0cnkgd2l0aCBsb2NrX3Nsb3cgYW5kIHJldHJ5ICovCglpZiAoZXJyID09IC1FREVBRExLKSB7CgkJY29udGVudF9yZXMgPSBpbmZvLT5yZXN2X29ianNbY29udGVudF9yZXNfaWR4XTsKCQl3d19tdXRleF9sb2NrX3Nsb3coJmNvbnRlbnRfcmVzLT5sb2NrLCBjdHgpOwoJCWdvdG8gcmV0cnk7Cgl9CgoJLyogSWYgd2UgYXJlIGhlcmUgdGhlIGZ1bmN0aW9uIGZhaWxlZCAqLwoJd3dfYWNxdWlyZV9maW5pKGN0eCk7CglyZXR1cm4gZXJyOwp9CgpzdGF0aWMgdm9pZAprYmFzZV9kbWFfZmVuY2VfdW5sb2NrX3Jlc2VydmF0aW9ucyhzdHJ1Y3Qga2Jhc2VfZG1hX2ZlbmNlX3Jlc3ZfaW5mbyAqaW5mbywKCQkJCSAgICBzdHJ1Y3Qgd3dfYWNxdWlyZV9jdHggKmN0eCkKewoJdW5zaWduZWQgaW50IHI7CgoJZm9yIChyID0gMDsgciA8IGluZm8tPmRtYV9mZW5jZV9yZXN2X2NvdW50OyByKyspCgkJd3dfbXV0ZXhfdW5sb2NrKCZpbmZvLT5yZXN2X29ianNbcl0tPmxvY2spOwoJd3dfYWNxdWlyZV9maW5pKGN0eCk7Cn0KCgoKLyoqCiAqIGtiYXNlX2RtYV9mZW5jZV9xdWV1ZV93b3JrKCkgLSBRdWV1ZSB3b3JrIHRvIGhhbmRsZSBAa2F0b20KICogQGthdG9tOiBQb2ludGVyIHRvIGF0b20gZm9yIHdoaWNoIHRvIHF1ZXVlIHdvcmsKICoKICogUXVldWUga2Jhc2VfZG1hX2ZlbmNlX3dvcmsoKSBmb3IgQGthdG9tIHRvIGNsZWFuIHVwIHRoZSBmZW5jZSBjYWxsYmFja3MgYW5kCiAqIHN1Ym1pdCB0aGUgYXRvbS4KICovCnN0YXRpYyB2b2lkCmtiYXNlX2RtYV9mZW5jZV9xdWV1ZV93b3JrKHN0cnVjdCBrYmFzZV9qZF9hdG9tICprYXRvbSkKewoJc3RydWN0IGtiYXNlX2NvbnRleHQgKmtjdHggPSBrYXRvbS0+a2N0eDsKCWJvb2wgcmV0OwoKCUlOSVRfV09SSygma2F0b20tPndvcmssIGtiYXNlX2RtYV9mZW5jZV93b3JrKTsKCXJldCA9IHF1ZXVlX3dvcmsoa2N0eC0+ZG1hX2ZlbmNlLndxLCAma2F0b20tPndvcmspOwoJLyogV2FybiBpZiB3b3JrIHdhcyBhbHJlYWR5IHF1ZXVlZCwgdGhhdCBzaG91bGQgbm90IGhhcHBlbi4gKi8KCVdBUk5fT04oIXJldCk7Cn0KCi8qKgogKiBrYmFzZV9kbWFfZmVuY2VfY2FuY2VsX2F0b20oKSAtIENhbmNlbHMgd2FpdGluZyBvbiBhbiBhdG9tCiAqIEBrYXRvbToJS2F0b20gdG8gY2FuY2VsCiAqCiAqIExvY2tpbmc6IGthdG9tLT5kbWFfZmVuY2UuY2FsbGJhY2tzIGxpc3QgYXNzdW1lcyBqY3R4LmxvY2sgaXMgaGVsZC4KICovCnN0YXRpYyB2b2lkCmtiYXNlX2RtYV9mZW5jZV9jYW5jZWxfYXRvbShzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20pCnsKCWxvY2tkZXBfYXNzZXJ0X2hlbGQoJmthdG9tLT5rY3R4LT5qY3R4LmxvY2spOwoKCS8qIENhbmNlbCBjYWxsYmFja3MgYW5kIGNsZWFuIHVwLiAqLwoJa2Jhc2VfZmVuY2VfZnJlZV9jYWxsYmFja3Moa2F0b20pOwoKCS8qIE1hcmsgdGhlIGF0b20gYXMgaGFuZGxlZCBpbiBjYXNlIGFsbCBmZW5jZXMgc2lnbmFsZWQganVzdCBiZWZvcmUKCSAqIGNhbmNlbGluZyB0aGUgY2FsbGJhY2tzIGFuZCB0aGUgd29ya2VyIHdhcyBxdWV1ZWQuCgkgKi8KCWtiYXNlX2ZlbmNlX2RlcF9jb3VudF9zZXQoa2F0b20sIC0xKTsKCgkvKiBQcmV2ZW50IGpvYl9kb25lX25vbG9jayBmcm9tIGJlaW5nIGNhbGxlZCB0d2ljZSBvbiBhbiBhdG9tIHdoZW4KCSAqIHRoZXJlIGlzIGEgcmFjZSBiZXR3ZWVuIGpvYiBjb21wbGV0aW9uIGFuZCBjYW5jZWxsYXRpb24uCgkgKi8KCglpZiAoa2F0b20tPnN0YXR1cyA9PSBLQkFTRV9KRF9BVE9NX1NUQVRFX1FVRVVFRCkgewoJCS8qIFdhaXQgd2FzIGNhbmNlbGxlZCAtIHphcCB0aGUgYXRvbSAqLwoJCWthdG9tLT5ldmVudF9jb2RlID0gQkFTRV9KRF9FVkVOVF9KT0JfQ0FOQ0VMTEVEOwoJCWlmIChqZF9kb25lX25vbG9jayhrYXRvbSwgTlVMTCkpCgkJCWtiYXNlX2pzX3NjaGVkX2FsbChrYXRvbS0+a2N0eC0+a2JkZXYpOwoJfQp9CgovKioKICoga2Jhc2VfZG1hX2ZlbmNlX3dvcmsoKSAtIFdvcmtlciB0aHJlYWQgY2FsbGVkIHdoZW4gYSBmZW5jZSBpcyBzaWduYWxlZAogKiBAcHdvcms6CXdvcmtfc3RydWN0IGNvbnRhaW5pbmcgYSBwb2ludGVyIHRvIGEga2F0b20KICoKICogVGhpcyBmdW5jdGlvbiB3aWxsIGNsZWFuIGFuZCBtYXJrIGFsbCBkZXBlbmRlbmNpZXMgYXMgc2F0aXNmaWVkCiAqLwpzdGF0aWMgdm9pZAprYmFzZV9kbWFfZmVuY2Vfd29yayhzdHJ1Y3Qgd29ya19zdHJ1Y3QgKnB3b3JrKQp7CglzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b207CglzdHJ1Y3Qga2Jhc2VfamRfY29udGV4dCAqY3R4OwoKCWthdG9tID0gY29udGFpbmVyX29mKHB3b3JrLCBzdHJ1Y3Qga2Jhc2VfamRfYXRvbSwgd29yayk7CgljdHggPSAma2F0b20tPmtjdHgtPmpjdHg7CgoJbXV0ZXhfbG9jaygmY3R4LT5sb2NrKTsKCWlmIChrYmFzZV9mZW5jZV9kZXBfY291bnRfcmVhZChrYXRvbSkgIT0gMCkKCQlnb3RvIG91dDsKCglrYmFzZV9mZW5jZV9kZXBfY291bnRfc2V0KGthdG9tLCAtMSk7CgoJLyogUmVtb3ZlIGF0b20gZnJvbSBsaXN0IG9mIGRtYS1mZW5jZSB3YWl0aW5nIGF0b21zLiAqLwoJa2Jhc2VfZG1hX2ZlbmNlX3dhaXRlcnNfcmVtb3ZlKGthdG9tKTsKCS8qIENsZWFudXAgY2FsbGJhY2tzLiAqLwoJa2Jhc2VfZmVuY2VfZnJlZV9jYWxsYmFja3Moa2F0b20pOwoJLyoKCSAqIFF1ZXVlIGF0b20gb24gR1BVLCB1bmxlc3MgaXQgaGFzIGFscmVhZHkgY29tcGxldGVkIGR1ZSB0byBhIGZhaWxpbmcKCSAqIGRlcGVuZGVuY3kuIFJ1biBqZF9kb25lX25vbG9jaygpIG9uIHRoZSBrYXRvbSBpZiBpdCBpcyBjb21wbGV0ZWQuCgkgKi8KCWlmICh1bmxpa2VseShrYXRvbS0+c3RhdHVzID09IEtCQVNFX0pEX0FUT01fU1RBVEVfQ09NUExFVEVEKSkKCQlqZF9kb25lX25vbG9jayhrYXRvbSwgTlVMTCk7CgllbHNlCgkJa2Jhc2VfamRfZGVwX2NsZWFyX2xvY2tlZChrYXRvbSk7CgpvdXQ6CgltdXRleF91bmxvY2soJmN0eC0+bG9jayk7Cn0KCnN0YXRpYyB2b2lkCiNpZiAoTElOVVhfVkVSU0lPTl9DT0RFIDwgS0VSTkVMX1ZFUlNJT04oNCwgMTAsIDApKQprYmFzZV9kbWFfZmVuY2VfY2Ioc3RydWN0IGZlbmNlICpmZW5jZSwgc3RydWN0IGZlbmNlX2NiICpjYikKI2Vsc2UKa2Jhc2VfZG1hX2ZlbmNlX2NiKHN0cnVjdCBkbWFfZmVuY2UgKmZlbmNlLCBzdHJ1Y3QgZG1hX2ZlbmNlX2NiICpjYikKI2VuZGlmCnsKCXN0cnVjdCBrYmFzZV9mZW5jZV9jYiAqa2NiID0gY29udGFpbmVyX29mKGNiLAoJCQkJc3RydWN0IGtiYXNlX2ZlbmNlX2NiLAoJCQkJZmVuY2VfY2IpOwoJc3RydWN0IGtiYXNlX2pkX2F0b20gKmthdG9tID0ga2NiLT5rYXRvbTsKCgkvKiBJZiB0aGUgYXRvbSBpcyB6YXBwZWQgZGVwX2NvdW50IHdpbGwgYmUgZm9yY2VkIHRvIGEgbmVnYXRpdmUgbnVtYmVyCgkgKiBwcmV2ZW50aW5nIHRoaXMgY2FsbGJhY2sgZnJvbSBldmVyIHNjaGVkdWxpbmcgd29yay4gV2hpY2ggaW4gdHVybgoJICogd291bGQgcmVzY2hlZHVsZSB0aGUgYXRvbS4KCSAqLwoKCWlmIChrYmFzZV9mZW5jZV9kZXBfY291bnRfZGVjX2FuZF90ZXN0KGthdG9tKSkKCQlrYmFzZV9kbWFfZmVuY2VfcXVldWVfd29yayhrYXRvbSk7Cn0KCnN0YXRpYyBpbnQKa2Jhc2VfZG1hX2ZlbmNlX2FkZF9yZXNlcnZhdGlvbl9jYWxsYmFjayhzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20sCgkJCQkJIHN0cnVjdCByZXNlcnZhdGlvbl9vYmplY3QgKnJlc3YsCgkJCQkJIGJvb2wgZXhjbHVzaXZlKQp7CiNpZiAoTElOVVhfVkVSU0lPTl9DT0RFIDwgS0VSTkVMX1ZFUlNJT04oNCwgMTAsIDApKQoJc3RydWN0IGZlbmNlICpleGNsX2ZlbmNlID0gTlVMTDsKCXN0cnVjdCBmZW5jZSAqKnNoYXJlZF9mZW5jZXMgPSBOVUxMOwojZWxzZQoJc3RydWN0IGRtYV9mZW5jZSAqZXhjbF9mZW5jZSA9IE5VTEw7CglzdHJ1Y3QgZG1hX2ZlbmNlICoqc2hhcmVkX2ZlbmNlcyA9IE5VTEw7CiNlbmRpZgoJdW5zaWduZWQgaW50IHNoYXJlZF9jb3VudCA9IDA7CglpbnQgZXJyLCBpOwoKCWVyciA9IHJlc2VydmF0aW9uX29iamVjdF9nZXRfZmVuY2VzX3JjdShyZXN2LAoJCQkJCQkmZXhjbF9mZW5jZSwKCQkJCQkJJnNoYXJlZF9jb3VudCwKCQkJCQkJJnNoYXJlZF9mZW5jZXMpOwoJaWYgKGVycikKCQlyZXR1cm4gZXJyOwoKCWlmIChleGNsX2ZlbmNlKSB7CgkJZXJyID0ga2Jhc2VfZmVuY2VfYWRkX2NhbGxiYWNrKGthdG9tLAoJCQkJCQlleGNsX2ZlbmNlLAoJCQkJCQlrYmFzZV9kbWFfZmVuY2VfY2IpOwoKCQkvKiBSZWxlYXNlIG91ciByZWZlcmVuY2UsIHRha2VuIGJ5IHJlc2VydmF0aW9uX29iamVjdF9nZXRfZmVuY2VzX3JjdSgpLAoJCSAqIHRvIHRoZSBmZW5jZS4gV2UgaGF2ZSBzZXQgdXAgb3VyIGNhbGxiYWNrIChpZiB0aGF0IHdhcyBwb3NzaWJsZSksCgkJICogYW5kIGl0J3MgdGhlIGZlbmNlJ3Mgb3duZXIgaXMgcmVzcG9uc2libGUgZm9yIHNpbmdsaW5nIHRoZSBmZW5jZQoJCSAqIGJlZm9yZSBhbGxvd2luZyBpdCB0byBkaXNhcHBlYXIuCgkJICovCgkJZG1hX2ZlbmNlX3B1dChleGNsX2ZlbmNlKTsKCgkJaWYgKGVycikKCQkJZ290byBvdXQ7Cgl9CgoJaWYgKGV4Y2x1c2l2ZSkgewoJCWZvciAoaSA9IDA7IGkgPCBzaGFyZWRfY291bnQ7IGkrKykgewoJCQllcnIgPSBrYmFzZV9mZW5jZV9hZGRfY2FsbGJhY2soa2F0b20sCgkJCQkJCQlzaGFyZWRfZmVuY2VzW2ldLAoJCQkJCQkJa2Jhc2VfZG1hX2ZlbmNlX2NiKTsKCQkJaWYgKGVycikKCQkJCWdvdG8gb3V0OwoJCX0KCX0KCgkvKiBSZWxlYXNlIGFsbCBvdXIgcmVmZXJlbmNlcyB0byB0aGUgc2hhcmVkIGZlbmNlcywgdGFrZW4gYnkKCSAqIHJlc2VydmF0aW9uX29iamVjdF9nZXRfZmVuY2VzX3JjdSgpLiBXZSBoYXZlIHNldCB1cCBvdXIgY2FsbGJhY2sgKGlmCgkgKiB0aGF0IHdhcyBwb3NzaWJsZSksIGFuZCBpdCdzIHRoZSBmZW5jZSdzIG93bmVyIGlzIHJlc3BvbnNpYmxlIGZvcgoJICogc2lnbmFsaW5nIHRoZSBmZW5jZSBiZWZvcmUgYWxsb3dpbmcgaXQgdG8gZGlzYXBwZWFyLgoJICovCm91dDoKCWZvciAoaSA9IDA7IGkgPCBzaGFyZWRfY291bnQ7IGkrKykKCQlkbWFfZmVuY2VfcHV0KHNoYXJlZF9mZW5jZXNbaV0pOwoJa2ZyZWUoc2hhcmVkX2ZlbmNlcyk7CgoJaWYgKGVycikgewoJCS8qCgkJICogT24gZXJyb3IsIGNhbmNlbCBhbmQgY2xlYW4gdXAgYWxsIGNhbGxiYWNrcyB0aGF0IHdhcyBzZXQgdXAKCQkgKiBiZWZvcmUgdGhlIGVycm9yLgoJCSAqLwoJCWtiYXNlX2ZlbmNlX2ZyZWVfY2FsbGJhY2tzKGthdG9tKTsKCX0KCglyZXR1cm4gZXJyOwp9Cgp2b2lkIGtiYXNlX2RtYV9mZW5jZV9hZGRfcmVzZXJ2YXRpb24oc3RydWN0IHJlc2VydmF0aW9uX29iamVjdCAqcmVzdiwKCQkJCSAgICAgc3RydWN0IGtiYXNlX2RtYV9mZW5jZV9yZXN2X2luZm8gKmluZm8sCgkJCQkgICAgIGJvb2wgZXhjbHVzaXZlKQp7Cgl1bnNpZ25lZCBpbnQgaTsKCglmb3IgKGkgPSAwOyBpIDwgaW5mby0+ZG1hX2ZlbmNlX3Jlc3ZfY291bnQ7IGkrKykgewoJCS8qIER1cGxpY2F0ZSByZXNvdXJjZSwgaWdub3JlICovCgkJaWYgKGluZm8tPnJlc3Zfb2Jqc1tpXSA9PSByZXN2KQoJCQlyZXR1cm47Cgl9CgoJaW5mby0+cmVzdl9vYmpzW2luZm8tPmRtYV9mZW5jZV9yZXN2X2NvdW50XSA9IHJlc3Y7CglpZiAoZXhjbHVzaXZlKQoJCXNldF9iaXQoaW5mby0+ZG1hX2ZlbmNlX3Jlc3ZfY291bnQsCgkJCWluZm8tPmRtYV9mZW5jZV9leGNsX2JpdG1hcCk7CgkoaW5mby0+ZG1hX2ZlbmNlX3Jlc3ZfY291bnQpKys7Cn0KCmludCBrYmFzZV9kbWFfZmVuY2Vfd2FpdChzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20sCgkJCSBzdHJ1Y3Qga2Jhc2VfZG1hX2ZlbmNlX3Jlc3ZfaW5mbyAqaW5mbykKewoJaW50IGVyciwgaTsKI2lmIChMSU5VWF9WRVJTSU9OX0NPREUgPCBLRVJORUxfVkVSU0lPTig0LCAxMCwgMCkpCglzdHJ1Y3QgZmVuY2UgKmZlbmNlOwojZWxzZQoJc3RydWN0IGRtYV9mZW5jZSAqZmVuY2U7CiNlbmRpZgoJc3RydWN0IHd3X2FjcXVpcmVfY3R4IHd3X2N0eDsKCglsb2NrZGVwX2Fzc2VydF9oZWxkKCZrYXRvbS0+a2N0eC0+amN0eC5sb2NrKTsKCglmZW5jZSA9IGtiYXNlX2ZlbmNlX291dF9uZXcoa2F0b20pOwoJaWYgKCFmZW5jZSkgewoJCWVyciA9IC1FTk9NRU07CgkJZGV2X2VycihrYXRvbS0+a2N0eC0+a2JkZXYtPmRldiwKCQkJIkVycm9yICVkIGNyZWF0aW5nIGZlbmNlLlxuIiwgZXJyKTsKCQlyZXR1cm4gZXJyOwoJfQoKCWtiYXNlX2ZlbmNlX2RlcF9jb3VudF9zZXQoa2F0b20sIDEpOwoKCWVyciA9IGtiYXNlX2RtYV9mZW5jZV9sb2NrX3Jlc2VydmF0aW9ucyhpbmZvLCAmd3dfY3R4KTsKCWlmIChlcnIpIHsKCQlkZXZfZXJyKGthdG9tLT5rY3R4LT5rYmRldi0+ZGV2LAoJCQkiRXJyb3IgJWQgbG9ja2luZyByZXNlcnZhdGlvbnMuXG4iLCBlcnIpOwoJCWtiYXNlX2ZlbmNlX2RlcF9jb3VudF9zZXQoa2F0b20sIC0xKTsKCQlrYmFzZV9mZW5jZV9vdXRfcmVtb3ZlKGthdG9tKTsKCQlyZXR1cm4gZXJyOwoJfQoKCWZvciAoaSA9IDA7IGkgPCBpbmZvLT5kbWFfZmVuY2VfcmVzdl9jb3VudDsgaSsrKSB7CgkJc3RydWN0IHJlc2VydmF0aW9uX29iamVjdCAqb2JqID0gaW5mby0+cmVzdl9vYmpzW2ldOwoKCQlpZiAoIXRlc3RfYml0KGksIGluZm8tPmRtYV9mZW5jZV9leGNsX2JpdG1hcCkpIHsKCQkJZXJyID0gcmVzZXJ2YXRpb25fb2JqZWN0X3Jlc2VydmVfc2hhcmVkKG9iaik7CgkJCWlmIChlcnIpIHsKCQkJCWRldl9lcnIoa2F0b20tPmtjdHgtPmtiZGV2LT5kZXYsCgkJCQkJIkVycm9yICVkIHJlc2VydmluZyBzcGFjZSBmb3Igc2hhcmVkIGZlbmNlLlxuIiwgZXJyKTsKCQkJCWdvdG8gZW5kOwoJCQl9CgoJCQllcnIgPSBrYmFzZV9kbWFfZmVuY2VfYWRkX3Jlc2VydmF0aW9uX2NhbGxiYWNrKGthdG9tLCBvYmosIGZhbHNlKTsKCQkJaWYgKGVycikgewoJCQkJZGV2X2VycihrYXRvbS0+a2N0eC0+a2JkZXYtPmRldiwKCQkJCQkiRXJyb3IgJWQgYWRkaW5nIHJlc2VydmF0aW9uIHRvIGNhbGxiYWNrLlxuIiwgZXJyKTsKCQkJCWdvdG8gZW5kOwoJCQl9CgoJCQlyZXNlcnZhdGlvbl9vYmplY3RfYWRkX3NoYXJlZF9mZW5jZShvYmosIGZlbmNlKTsKCQl9IGVsc2UgewoJCQllcnIgPSBrYmFzZV9kbWFfZmVuY2VfYWRkX3Jlc2VydmF0aW9uX2NhbGxiYWNrKGthdG9tLCBvYmosIHRydWUpOwoJCQlpZiAoZXJyKSB7CgkJCQlkZXZfZXJyKGthdG9tLT5rY3R4LT5rYmRldi0+ZGV2LAoJCQkJCSJFcnJvciAlZCBhZGRpbmcgcmVzZXJ2YXRpb24gdG8gY2FsbGJhY2suXG4iLCBlcnIpOwoJCQkJZ290byBlbmQ7CgkJCX0KCgkJCXJlc2VydmF0aW9uX29iamVjdF9hZGRfZXhjbF9mZW5jZShvYmosIGZlbmNlKTsKCQl9Cgl9CgplbmQ6CglrYmFzZV9kbWFfZmVuY2VfdW5sb2NrX3Jlc2VydmF0aW9ucyhpbmZvLCAmd3dfY3R4KTsKCglpZiAobGlrZWx5KCFlcnIpKSB7CgkJLyogVGVzdCBpZiB0aGUgY2FsbGJhY2tzIGFyZSBhbHJlYWR5IHRyaWdnZXJlZCAqLwoJCWlmIChrYmFzZV9mZW5jZV9kZXBfY291bnRfZGVjX2FuZF90ZXN0KGthdG9tKSkgewoJCQlrYmFzZV9mZW5jZV9kZXBfY291bnRfc2V0KGthdG9tLCAtMSk7CgkJCWtiYXNlX2ZlbmNlX2ZyZWVfY2FsbGJhY2tzKGthdG9tKTsKCQl9IGVsc2UgewoJCQkvKiBBZGQga2F0b20gdG8gdGhlIGxpc3Qgb2YgZG1hLWJ1ZiBmZW5jZSB3YWl0aW5nIGF0b21zCgkJCSAqIG9ubHkgaWYgaXQgaXMgc3RpbGwgd2FpdGluZy4KCQkJICovCgkJCWtiYXNlX2RtYV9mZW5jZV93YWl0ZXJzX2FkZChrYXRvbSk7CgkJfQoJfSBlbHNlIHsKCQkvKiBUaGVyZSB3YXMgYW4gZXJyb3IsIGNhbmNlbCBjYWxsYmFja3MsIHNldCBkZXBfY291bnQgdG8gLTEgdG8KCQkgKiBpbmRpY2F0ZSB0aGF0IHRoZSBhdG9tIGhhcyBiZWVuIGhhbmRsZWQgKHRoZSBjYWxsZXIgd2lsbAoJCSAqIGtpbGwgaXQgZm9yIHVzKSwgc2lnbmFsIHRoZSBmZW5jZSwgZnJlZSBjYWxsYmFja3MgYW5kIHRoZQoJCSAqIGZlbmNlLgoJCSAqLwoJCWtiYXNlX2ZlbmNlX2ZyZWVfY2FsbGJhY2tzKGthdG9tKTsKCQlrYmFzZV9mZW5jZV9kZXBfY291bnRfc2V0KGthdG9tLCAtMSk7CgkJa2Jhc2VfZG1hX2ZlbmNlX3NpZ25hbChrYXRvbSk7Cgl9CgoJcmV0dXJuIGVycjsKfQoKdm9pZCBrYmFzZV9kbWFfZmVuY2VfY2FuY2VsX2FsbF9hdG9tcyhzdHJ1Y3Qga2Jhc2VfY29udGV4dCAqa2N0eCkKewoJc3RydWN0IGxpc3RfaGVhZCAqbGlzdCA9ICZrY3R4LT5kbWFfZmVuY2Uud2FpdGluZ19yZXNvdXJjZTsKCgl3aGlsZSAoIWxpc3RfZW1wdHkobGlzdCkpIHsKCQlzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b207CgoJCWthdG9tID0gbGlzdF9maXJzdF9lbnRyeShsaXN0LCBzdHJ1Y3Qga2Jhc2VfamRfYXRvbSwgcXVldWUpOwoJCWtiYXNlX2RtYV9mZW5jZV93YWl0ZXJzX3JlbW92ZShrYXRvbSk7CgkJa2Jhc2VfZG1hX2ZlbmNlX2NhbmNlbF9hdG9tKGthdG9tKTsKCX0KfQoKdm9pZCBrYmFzZV9kbWFfZmVuY2VfY2FuY2VsX2NhbGxiYWNrcyhzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20pCnsKCS8qIENhbmNlbCBjYWxsYmFja3MgYW5kIGNsZWFuIHVwLiAqLwoJaWYgKGtiYXNlX2ZlbmNlX2ZyZWVfY2FsbGJhY2tzKGthdG9tKSkKCQlrYmFzZV9kbWFfZmVuY2VfcXVldWVfd29yayhrYXRvbSk7Cn0KCnZvaWQga2Jhc2VfZG1hX2ZlbmNlX3NpZ25hbChzdHJ1Y3Qga2Jhc2VfamRfYXRvbSAqa2F0b20pCnsKCWlmICgha2F0b20tPmRtYV9mZW5jZS5mZW5jZSkKCQlyZXR1cm47CgoJLyogU2lnbmFsIHRoZSBhdG9tJ3MgZmVuY2UuICovCglkbWFfZmVuY2Vfc2lnbmFsKGthdG9tLT5kbWFfZmVuY2UuZmVuY2UpOwoKCWtiYXNlX2ZlbmNlX291dF9yZW1vdmUoa2F0b20pOwoKCWtiYXNlX2ZlbmNlX2ZyZWVfY2FsbGJhY2tzKGthdG9tKTsKfQoKdm9pZCBrYmFzZV9kbWFfZmVuY2VfdGVybShzdHJ1Y3Qga2Jhc2VfY29udGV4dCAqa2N0eCkKewoJZGVzdHJveV93b3JrcXVldWUoa2N0eC0+ZG1hX2ZlbmNlLndxKTsKCWtjdHgtPmRtYV9mZW5jZS53cSA9IE5VTEw7Cn0KCmludCBrYmFzZV9kbWFfZmVuY2VfaW5pdChzdHJ1Y3Qga2Jhc2VfY29udGV4dCAqa2N0eCkKewoJSU5JVF9MSVNUX0hFQUQoJmtjdHgtPmRtYV9mZW5jZS53YWl0aW5nX3Jlc291cmNlKTsKCglrY3R4LT5kbWFfZmVuY2Uud3EgPSBhbGxvY193b3JrcXVldWUoIm1hbGktZmVuY2UtJWQiLAoJCQkJCSAgICAgV1FfVU5CT1VORCwgMSwga2N0eC0+cGlkKTsKCWlmICgha2N0eC0+ZG1hX2ZlbmNlLndxKQoJCXJldHVybiAtRU5PTUVNOwoKCXJldHVybiAwOwp9Cg==
+/*
+ *
+ * (C) COPYRIGHT 2011-2017,2020 ARM Limited. All rights reserved.
+ *
+ * This program is free software and is provided to you under the terms of the
+ * GNU General Public License version 2 as published by the Free Software
+ * Foundation, and any use by you of this program is subject to the terms
+ * of such GNU licence.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, you can access it online at
+ * http://www.gnu.org/licenses/gpl-2.0.html.
+ *
+ * SPDX-License-Identifier: GPL-2.0
+ *
+ */
+/* Include mali_kbase_dma_fence.h before checking for CONFIG_MALI_DMA_FENCE as
+ * it will be set there.
+ */
+#include "mali_kbase_dma_fence.h"
+#include <linux/atomic.h>
+#include <linux/list.h>
+#include <linux/lockdep.h>
+#include <linux/mutex.h>
+#include <linux/reservation.h>
+#include <linux/slab.h>
+#include <linux/spinlock.h>
+#include <linux/workqueue.h>
+#include <linux/ww_mutex.h>
+#include <mali_kbase.h>
+static void
+kbase_dma_fence_work(struct work_struct *pwork);
+static void
+kbase_dma_fence_waiters_add(struct kbase_jd_atom *katom)
+{
+	struct kbase_context *kctx = katom->kctx;
+	list_add_tail(&katom->queue, &kctx->dma_fence.waiting_resource);
+}
+static void
+kbase_dma_fence_waiters_remove(struct kbase_jd_atom *katom)
+{
+	list_del(&katom->queue);
+}
+static int
+kbase_dma_fence_lock_reservations(struct kbase_dma_fence_resv_info *info,
+				  struct ww_acquire_ctx *ctx)
+{
+	struct reservation_object *content_res = NULL;
+	unsigned int content_res_idx = 0;
+	unsigned int r;
+	int err = 0;
+	ww_acquire_init(ctx, &reservation_ww_class);
+retry:
+	for (r = 0; r < info->dma_fence_resv_count; r++) {
+		if (info->resv_objs[r] == content_res) {
+			content_res = NULL;
+			continue;
+		}
+		err = ww_mutex_lock(&info->resv_objs[r]->lock, ctx);
+		if (err)
+			goto error;
+	}
+	ww_acquire_done(ctx);
+	return err;
+error:
+	content_res_idx = r;
+	/* Unlock the locked one ones */
+	while (r--)
+		ww_mutex_unlock(&info->resv_objs[r]->lock);
+	if (content_res)
+		ww_mutex_unlock(&content_res->lock);
+	/* If we deadlock try with lock_slow and retry */
+	if (err == -EDEADLK) {
+		content_res = info->resv_objs[content_res_idx];
+		ww_mutex_lock_slow(&content_res->lock, ctx);
+		goto retry;
+	}
+	/* If we are here the function failed */
+	ww_acquire_fini(ctx);
+	return err;
+}
+static void
+kbase_dma_fence_unlock_reservations(struct kbase_dma_fence_resv_info *info,
+				    struct ww_acquire_ctx *ctx)
+{
+	unsigned int r;
+	for (r = 0; r < info->dma_fence_resv_count; r++)
+		ww_mutex_unlock(&info->resv_objs[r]->lock);
+	ww_acquire_fini(ctx);
+}
+/**
+ * kbase_dma_fence_queue_work() - Queue work to handle @katom
+ * @katom: Pointer to atom for which to queue work
+ *
+ * Queue kbase_dma_fence_work() for @katom to clean up the fence callbacks and
+ * submit the atom.
+ */
+static void
+kbase_dma_fence_queue_work(struct kbase_jd_atom *katom)
+{
+	struct kbase_context *kctx = katom->kctx;
+	bool ret;
+	INIT_WORK(&katom->work, kbase_dma_fence_work);
+	ret = queue_work(kctx->dma_fence.wq, &katom->work);
+	/* Warn if work was already queued, that should not happen. */
+	WARN_ON(!ret);
+}
+/**
+ * kbase_dma_fence_cancel_atom() - Cancels waiting on an atom
+ * @katom:	Katom to cancel
+ *
+ * Locking: katom->dma_fence.callbacks list assumes jctx.lock is held.
+ */
+static void
+kbase_dma_fence_cancel_atom(struct kbase_jd_atom *katom)
+{
+	lockdep_assert_held(&katom->kctx->jctx.lock);
+	/* Cancel callbacks and clean up. */
+	kbase_fence_free_callbacks(katom);
+	/* Mark the atom as handled in case all fences signaled just before
+	 * canceling the callbacks and the worker was queued.
+	 */
+	kbase_fence_dep_count_set(katom, -1);
+	/* Prevent job_done_nolock from being called twice on an atom when
+	 * there is a race between job completion and cancellation.
+	 */
+	if (katom->status == KBASE_JD_ATOM_STATE_QUEUED) {
+		/* Wait was cancelled - zap the atom */
+		katom->event_code = BASE_JD_EVENT_JOB_CANCELLED;
+		if (jd_done_nolock(katom, NULL))
+			kbase_js_sched_all(katom->kctx->kbdev);
+	}
+}
+/**
+ * kbase_dma_fence_work() - Worker thread called when a fence is signaled
+ * @pwork:	work_struct containing a pointer to a katom
+ *
+ * This function will clean and mark all dependencies as satisfied
+ */
+static void
+kbase_dma_fence_work(struct work_struct *pwork)
+{
+	struct kbase_jd_atom *katom;
+	struct kbase_jd_context *ctx;
+	katom = container_of(pwork, struct kbase_jd_atom, work);
+	ctx = &katom->kctx->jctx;
+	mutex_lock(&ctx->lock);
+	if (kbase_fence_dep_count_read(katom) != 0)
+		goto out;
+	kbase_fence_dep_count_set(katom, -1);
+	/* Remove atom from list of dma-fence waiting atoms. */
+	kbase_dma_fence_waiters_remove(katom);
+	/* Cleanup callbacks. */
+	kbase_fence_free_callbacks(katom);
+	/*
+	 * Queue atom on GPU, unless it has already completed due to a failing
+	 * dependency. Run jd_done_nolock() on the katom if it is completed.
+	 */
+	if (unlikely(katom->status == KBASE_JD_ATOM_STATE_COMPLETED))
+		jd_done_nolock(katom, NULL);
+	else
+		kbase_jd_dep_clear_locked(katom);
+out:
+	mutex_unlock(&ctx->lock);
+}
+static void
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0))
+kbase_dma_fence_cb(struct fence *fence, struct fence_cb *cb)
+#else
+kbase_dma_fence_cb(struct dma_fence *fence, struct dma_fence_cb *cb)
+#endif
+{
+	struct kbase_fence_cb *kcb = container_of(cb,
+				struct kbase_fence_cb,
+				fence_cb);
+	struct kbase_jd_atom *katom = kcb->katom;
+	/* If the atom is zapped dep_count will be forced to a negative number
+	 * preventing this callback from ever scheduling work. Which in turn
+	 * would reschedule the atom.
+	 */
+	if (kbase_fence_dep_count_dec_and_test(katom))
+		kbase_dma_fence_queue_work(katom);
+}
+static int
+kbase_dma_fence_add_reservation_callback(struct kbase_jd_atom *katom,
+					 struct reservation_object *resv,
+					 bool exclusive)
+{
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0))
+	struct fence *excl_fence = NULL;
+	struct fence **shared_fences = NULL;
+#else
+	struct dma_fence *excl_fence = NULL;
+	struct dma_fence **shared_fences = NULL;
+#endif
+	unsigned int shared_count = 0;
+	int err, i;
+	err = reservation_object_get_fences_rcu(resv,
+						&excl_fence,
+						&shared_count,
+						&shared_fences);
+	if (err)
+		return err;
+	if (excl_fence) {
+		err = kbase_fence_add_callback(katom,
+						excl_fence,
+						kbase_dma_fence_cb);
+		/* Release our reference, taken by reservation_object_get_fences_rcu(),
+		 * to the fence. We have set up our callback (if that was possible),
+		 * and it's the fence's owner is responsible for singling the fence
+		 * before allowing it to disappear.
+		 */
+		dma_fence_put(excl_fence);
+		if (err)
+			goto out;
+	}
+	if (exclusive) {
+		for (i = 0; i < shared_count; i++) {
+			err = kbase_fence_add_callback(katom,
+							shared_fences[i],
+							kbase_dma_fence_cb);
+			if (err)
+				goto out;
+		}
+	}
+	/* Release all our references to the shared fences, taken by
+	 * reservation_object_get_fences_rcu(). We have set up our callback (if
+	 * that was possible), and it's the fence's owner is responsible for
+	 * signaling the fence before allowing it to disappear.
+	 */
+out:
+	for (i = 0; i < shared_count; i++)
+		dma_fence_put(shared_fences[i]);
+	kfree(shared_fences);
+	if (err) {
+		/*
+		 * On error, cancel and clean up all callbacks that was set up
+		 * before the error.
+		 */
+		kbase_fence_free_callbacks(katom);
+	}
+	return err;
+}
+void kbase_dma_fence_add_reservation(struct reservation_object *resv,
+				     struct kbase_dma_fence_resv_info *info,
+				     bool exclusive)
+{
+	unsigned int i;
+	for (i = 0; i < info->dma_fence_resv_count; i++) {
+		/* Duplicate resource, ignore */
+		if (info->resv_objs[i] == resv)
+			return;
+	}
+	info->resv_objs[info->dma_fence_resv_count] = resv;
+	if (exclusive)
+		set_bit(info->dma_fence_resv_count,
+			info->dma_fence_excl_bitmap);
+	(info->dma_fence_resv_count)++;
+}
+int kbase_dma_fence_wait(struct kbase_jd_atom *katom,
+			 struct kbase_dma_fence_resv_info *info)
+{
+	int err, i;
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0))
+	struct fence *fence;
+#else
+	struct dma_fence *fence;
+#endif
+	struct ww_acquire_ctx ww_ctx;
+	lockdep_assert_held(&katom->kctx->jctx.lock);
+	fence = kbase_fence_out_new(katom);
+	if (!fence) {
+		err = -ENOMEM;
+		dev_err(katom->kctx->kbdev->dev,
+			"Error %d creating fence.\n", err);
+		return err;
+	}
+	kbase_fence_dep_count_set(katom, 1);
+	err = kbase_dma_fence_lock_reservations(info, &ww_ctx);
+	if (err) {
+		dev_err(katom->kctx->kbdev->dev,
+			"Error %d locking reservations.\n", err);
+		kbase_fence_dep_count_set(katom, -1);
+		kbase_fence_out_remove(katom);
+		return err;
+	}
+	for (i = 0; i < info->dma_fence_resv_count; i++) {
+		struct reservation_object *obj = info->resv_objs[i];
+		if (!test_bit(i, info->dma_fence_excl_bitmap)) {
+			err = reservation_object_reserve_shared(obj);
+			if (err) {
+				dev_err(katom->kctx->kbdev->dev,
+					"Error %d reserving space for shared fence.\n", err);
+				goto end;
+			}
+			err = kbase_dma_fence_add_reservation_callback(katom, obj, false);
+			if (err) {
+				dev_err(katom->kctx->kbdev->dev,
+					"Error %d adding reservation to callback.\n", err);
+				goto end;
+			}
+			reservation_object_add_shared_fence(obj, fence);
+		} else {
+			err = kbase_dma_fence_add_reservation_callback(katom, obj, true);
+			if (err) {
+				dev_err(katom->kctx->kbdev->dev,
+					"Error %d adding reservation to callback.\n", err);
+				goto end;
+			}
+			reservation_object_add_excl_fence(obj, fence);
+		}
+	}
+end:
+	kbase_dma_fence_unlock_reservations(info, &ww_ctx);
+	if (likely(!err)) {
+		/* Test if the callbacks are already triggered */
+		if (kbase_fence_dep_count_dec_and_test(katom)) {
+			kbase_fence_dep_count_set(katom, -1);
+			kbase_fence_free_callbacks(katom);
+		} else {
+			/* Add katom to the list of dma-buf fence waiting atoms
+			 * only if it is still waiting.
+			 */
+			kbase_dma_fence_waiters_add(katom);
+		}
+	} else {
+		/* There was an error, cancel callbacks, set dep_count to -1 to
+		 * indicate that the atom has been handled (the caller will
+		 * kill it for us), signal the fence, free callbacks and the
+		 * fence.
+		 */
+		kbase_fence_free_callbacks(katom);
+		kbase_fence_dep_count_set(katom, -1);
+		kbase_dma_fence_signal(katom);
+	}
+	return err;
+}
+void kbase_dma_fence_cancel_all_atoms(struct kbase_context *kctx)
+{
+	struct list_head *list = &kctx->dma_fence.waiting_resource;
+	while (!list_empty(list)) {
+		struct kbase_jd_atom *katom;
+		katom = list_first_entry(list, struct kbase_jd_atom, queue);
+		kbase_dma_fence_waiters_remove(katom);
+		kbase_dma_fence_cancel_atom(katom);
+	}
+}
+void kbase_dma_fence_cancel_callbacks(struct kbase_jd_atom *katom)
+{
+	/* Cancel callbacks and clean up. */
+	if (kbase_fence_free_callbacks(katom))
+		kbase_dma_fence_queue_work(katom);
+}
+void kbase_dma_fence_signal(struct kbase_jd_atom *katom)
+{
+	if (!katom->dma_fence.fence)
+		return;
+	/* Signal the atom's fence. */
+	dma_fence_signal(katom->dma_fence.fence);
+	kbase_fence_out_remove(katom);
+	kbase_fence_free_callbacks(katom);
+}
+void kbase_dma_fence_term(struct kbase_context *kctx)
+{
+	destroy_workqueue(kctx->dma_fence.wq);
+	kctx->dma_fence.wq = NULL;
+}
+int kbase_dma_fence_init(struct kbase_context *kctx)
+{
+	INIT_LIST_HEAD(&kctx->dma_fence.waiting_resource);
+	kctx->dma_fence.wq = alloc_workqueue("mali-fence-%d",
+					     WQ_UNBOUND, 1, kctx->pid);
+	if (!kctx->dma_fence.wq)
+		return -ENOMEM;
+	return 0;
+}
