@@ -41,7 +41,7 @@ jobs:
           --second_offset 0x00e88000 \
           --tags_offset 0x07988000 \
           --header_version 0 \
-          --output Phenix_stock-${{ steps.dob.outputs.TIME }}.img
+          --output A14Kernel-${{ steps.dob.outputs.TIME }}.img
 
     - name: Upload Kernel
       uses: actions/upload-artifact@v4
